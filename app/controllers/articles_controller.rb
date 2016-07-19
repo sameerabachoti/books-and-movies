@@ -2,24 +2,20 @@ class ArticlesController < ApplicationController
   def index
     articles = Article.get_articles
     @articles = Article.all
-    binding.pry
-  end
-=begin
-  def new
-    @article = Article.new
-  end
 
-  def create
-    binding.pry
-    articles = Article.get_articles
-    articles.each do |article|
-      @article = Article.create(article.title, article.section, article.abstract, article.url, article.byline, article.published_date, article.material_type_facet)
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @articles}
     end
-    redirect_to articles_path
   end
 
   def show
-    @article = Article.find(params[:article_id])
+    @article = Article.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @article}
+    end
   end
-=end
+
 end

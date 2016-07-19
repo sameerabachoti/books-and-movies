@@ -27,6 +27,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 gem 'httparty'
 gem 'pry'
+gem 'active_model_serializers'
+gem 'bower-rails'
+gem 'angular-rails-templates'
+gem 'responders', '~> 2.0' 
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

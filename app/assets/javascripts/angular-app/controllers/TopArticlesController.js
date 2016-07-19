@@ -1,19 +1,8 @@
 function TopArticlesController(articles){
-  //console.log(articles.data.results[10].title);
-  var ctrl = this;
-  //ctrl.articles = articles.data.results;
-  ctrl.articles = articles.data.results;
-  ctrl.temp = 'hey';
+  console.log(articles);
+};
 
-  this.showArticle = function(id){
-    for (var i = 0; i < articles.data.results.length; i++) {
-      if (articles.data.results[i].id === id) {
-        return articles.data.results[i];
-      }
-   }
-  }
-
-}
+TopArticlesController.$inject = ['ArticlesService'];
 
 angular
     .module('app')
