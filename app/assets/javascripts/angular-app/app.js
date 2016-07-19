@@ -2,8 +2,12 @@ angular
     .module('app', ['ui.router'])
     .config(function ($stateProvider) {
         $stateProvider
-            .state('top', {
-                url: '/top',
+            .state('sections', {
+                url: '/sections',
+                templateUrl: 'app/assets/javascripts/angular-app/templates/sections.html',
+            })
+            .state('section', {
+                url: 'section/:name',
                 templateUrl: 'app/assets/javascripts/angular-app/templates/top-articles.html',
                 controller: 'TopArticlesController as top',
                 resolve: {
