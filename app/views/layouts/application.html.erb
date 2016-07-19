@@ -2,13 +2,20 @@
 <html>
 <head>
   <title>NytHeadlines</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.js"></script>
 </head>
 <body>
 
 <%= yield %>
+
+<body ng-app="app">
+
+  <div ui-view></div>
+
+</body>
 
 </body>
 </html>

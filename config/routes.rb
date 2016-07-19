@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  root 'application#home'
   resources :articles
+  #get '*path' => 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
