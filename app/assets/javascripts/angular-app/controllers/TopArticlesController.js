@@ -1,5 +1,6 @@
 function TopArticlesController(articles){
-  console.log(articles);
+  var ctrl = this;
+  ctrl.data = articles.getMostViewedArticles().$$state;
 };
 
 TopArticlesController.$inject = ['ArticlesService'];

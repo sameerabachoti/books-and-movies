@@ -4,9 +4,13 @@ function ArticlesService($http){
   this.getMostViewedArticles = function (){
     return $http.get("/articles.json");
   }
+
+  this.getArticle = function(id){
+    return $http.get("/articles/" + id + ".json");
+  }
 }
 
-//ArticlesService.$inject = ['$http']
+ArticlesService.$inject = ['$http']
 
 angular
   .module('app')

@@ -1,8 +1,8 @@
-<h1>Top NYT Articles</h1>
+<h1>Top NYT Stories</h1>
 <div>
   <ul class="articles">
-    <li ng-repeat="data in top.data">
-      <p><{{top.data[1]}}/p>
+    <li ng-repeat="article in top.data.value.data">
+      <p><a ng-href="/#/article/{{article.id}}">{{article.title}}</a></p>
     </li>
   </ul>
 </div>
