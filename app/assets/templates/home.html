@@ -1,7 +1,8 @@
 <h1>Top NYT Stories</h1>
 <div>
+ <input ng-model="top.search"/>
   <ul class="articles">
-    <li ng-repeat="article in top.data.value.data">
+    <li ng-repeat="article in top.data.value.data | filter: top.search">
       <p><a ng-href="/#/article/{{article.id}}">{{article.title}}</a></p>
     </li>
   </ul>
