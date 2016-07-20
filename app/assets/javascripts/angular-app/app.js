@@ -11,7 +11,7 @@ angular
                 url: '/sections',
                 templateUrl: 'app/assets/javascripts/angular-app/templates/sections.html',
             })*/
-            .state('/home', {
+            .state('home', {
                 url: '/',
                 templateUrl: 'home.html',
                 controller: 'TopArticlesController as top',
