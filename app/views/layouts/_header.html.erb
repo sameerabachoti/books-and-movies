@@ -1,0 +1,22 @@
+<div class="header">
+<div id="title">
+</div>
+
+<br><br>
+<nav class="nav">
+    <ul>
+          <% if current_user %>
+            <p><a href="http://localhost:3000/#/">Home</a></p>
+            <%= link_to "Sign out", destroy_user_session_path, :class => "nav_button", method: :delete %>
+          <%else%>
+            <%= link_to "Sign In", user_session_path, :class => "nav_button"%>
+            <%= link_to "Sign up", new_user_registration_path, :class => "nav_button" %>
+          <% end %> 
+
+    </ul>
+</nav>
+</div>
+<br><br><br>
+<% if current_user %>
+   <div class="welcome">Hello <%= current_user.email %>!<br><br></div>
+<% end %>

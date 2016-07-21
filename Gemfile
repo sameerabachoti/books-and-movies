@@ -31,6 +31,7 @@ gem 'active_model_serializers'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'responders', '~> 2.0' 
+gem 'devise'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

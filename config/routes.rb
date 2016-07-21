@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  root 'application#home'
+  devise_for :users, :controllers => {registrations: 'registrations' }
+  root 'application#index'
   resources :articles
+
+  get 'current_user' => "users#current_user"
+
   #get '*path' => 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
