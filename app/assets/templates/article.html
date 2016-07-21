@@ -7,3 +7,9 @@
   <p>Other categories: {{data.value.data.material_type_facet}}</p>
   <p><a href="{{data.value.data.url}}">{{data.value.data.url}}</a></p>
 </div>
+
+<p>What do you think about this article? Tell us in the comments below:</p>
+<form ng-submit="submitComment()">
+  <textarea ng-model="commentContent"></textarea><br>
+  <input type="submit">
+</form>
