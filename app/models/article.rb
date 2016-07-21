@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  has_many :comments
+
   def self.get_articles
     response = HTTParty.get("http://api.nytimes.com/svc/topstories/v1/home.json?api-key=***REMOVED***")
     response["results"].first(20).each do |article|
