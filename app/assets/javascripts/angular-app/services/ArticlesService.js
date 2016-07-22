@@ -1,5 +1,5 @@
 function ArticlesService($http){
-  console.log($http);
+
   this.getMostViewedArticles = function (){
     return $http.get("/articles.json");
   }
