@@ -1,13 +1,15 @@
 function ArticlesService($http){
-  //returns the entire JSON object
-  //console.log($http.get("http://localhost:3000/articles.json"));
-  var articles = $http.get("/articles.json");
+  console.log($http);
   this.getMostViewedArticles = function (){
     return $http.get("/articles.json");
   }
 
   this.getArticle = function(id){
     return $http.get("/articles/" + id + ".json");
+  }
+
+  this.postComment = function(comment, id){
+    return $http.post("/articles/" + id + "/comments", comment);
   }
 }
 
