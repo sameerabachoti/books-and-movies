@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations' }
   root 'application#index'
-  resources :articles
-
+  resources :articles do 
+    resources :comments
+  end
+  resources :comments
   get 'current_user' => "users#current_user"
 
   #get '*path' => 'articles#index'
