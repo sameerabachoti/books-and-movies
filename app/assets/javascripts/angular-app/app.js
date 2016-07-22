@@ -10,13 +10,7 @@ angular
             .state('article', {
                 url: '/article/:id',
                 templateUrl: 'article.html',
-                controller: function ($stateParams, ArticlesService, $scope) {
-                    $scope.data = ArticlesService.getArticle($stateParams.id).$$state;
-                    $scope.submitComment = function(){
-                      var comment = {article_id: 1, content: $scope.commentContent};
-                      ArticlesService.postComment(comment, $stateParams.id);
-                    }
-                }
+                controller: 'ArticleController as article'
             })
     });
 
