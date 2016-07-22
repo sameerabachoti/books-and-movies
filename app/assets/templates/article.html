@@ -9,8 +9,11 @@
 </div>
 
 <p>What do you think about this article? Tell us in the comments below:</p>
-<form ng-submit="article.submitComment()">
-  <textarea ng-model="article.commentContent"></textarea><br>
+<form name="form" ng-submit="article.submitComment()">
+  <textarea name="commentContent" required="required" ng-model="article.commentContent"></textarea><br>
+  <div ng-if="form.commentContent.$touched && form.commentContent.$error.required">
+        Comment must be filled out! 
+  </div>
   <input type="submit">
 </form>
 
