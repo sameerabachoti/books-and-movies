@@ -11,6 +11,11 @@ function ArticlesService($http){
   this.postComment = function(comment, id){
     return $http.post("/articles/" + id + "/comments", comment);
   }
+
+  this.postArticle = function(article){
+    console.log("post?");
+    return $http.post("/users/" + currentUser.id + "/articles", article)
+  }
 }
 
 ArticlesService.$inject = ['$http']

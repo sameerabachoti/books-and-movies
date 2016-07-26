@@ -8,6 +8,15 @@ function ArticleController($scope, $stateParams, ArticlesService){
         ctrl.data.value.data.comments.push(comment)
       })
     }
+
+    ctrl.bookmarkArticle = function(){
+      console.log("worked");
+      var article = ctrl.data.value.data;
+      console.log(currentUser);
+      ArticlesService.postArticle(article).then(function(response){
+        currentUser.articles.push(article);
+      });
+    }
 };
 
 ArticleController.$inject = ['$scope', '$stateParams', 'ArticlesService'];
