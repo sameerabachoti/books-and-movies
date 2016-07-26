@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :comments
   get 'current_user' => "users#current_user"
 
+  resources :users do
+    resources :articles
+  end
+
   #get '*path' => 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
