@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   has_many :comments
+  belongs_to :user
 
   def self.get_articles
     response = HTTParty.get("http://api.nytimes.com/svc/topstories/v1/home.json?api-key=***REMOVED***")
