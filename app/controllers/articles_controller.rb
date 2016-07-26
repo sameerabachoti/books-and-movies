@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @article = Article.find(article_params["id"])
-    @user.articles << @article
+    @user.articles << @article if !@user.articles.include?(@article)
     @article.update(user: current_user)
     render :json => @article
   end
