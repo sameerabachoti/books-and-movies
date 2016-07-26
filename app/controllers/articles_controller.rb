@@ -24,15 +24,14 @@ class ArticlesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @article = Article.create(article_params);
-    @article = @user.articles.build(article_params)
-    @article.user = @user;
-    @article.save
+    @article = Article.find(article_params["id"])
+    @user.articles << @article
+    @article.update(user: current_user)
     render :json => @article
   end
 
   def article_params
-      params.require(:article).permit(:title, :section, :abstract, :url, :byline, :published_date, :material_type_facet, :user_id)
+      params.require(:article).permit(:id, :title, :section, :abstract, :url, :byline, :published_date, :material_type_facet, :user_id)
   end
 
 end
