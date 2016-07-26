@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160721190957) do
     t.string   "byline"
     t.string   "published_date"
     t.string   "material_type_facet"
+    t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
