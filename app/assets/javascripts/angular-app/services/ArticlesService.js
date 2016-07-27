@@ -13,8 +13,11 @@ function ArticlesService($http){
   }
 
   this.postArticle = function(article){
-    console.log("post?");
     return $http.post("/users/" + currentUser.id + "/articles", article)
+  }
+
+  this.getCurrentUserArticles = function(id){
+    return $http.get("users/" + id + ".json");
   }
 }
 
