@@ -56,6 +56,11 @@ angular
                     );
               
                 }
+            })
+            .state('my-articles', {
+                url: '/my-articles',
+                templateUrl: 'myArticles.html',
+                controller: 'BookmarkController as myArticles'
             });
     });
 
