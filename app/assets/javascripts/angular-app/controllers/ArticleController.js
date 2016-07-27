@@ -1,7 +1,8 @@
 function ArticleController($scope, $stateParams, ArticlesService){
     var ctrl = this;
     ctrl.data = ArticlesService.getArticle($stateParams.id).$$state;
-    console.log(ArticlesService.getArticle($stateParams.id));
+    ctrl.currentUser = currentUser;
+    
     ctrl.submitComment = function(){
       var comment = {article_id: $stateParams.id, content: ctrl.commentContent};
       ArticlesService.postComment(comment, $stateParams.id).then(function(response) {
@@ -9,14 +10,12 @@ function ArticleController($scope, $stateParams, ArticlesService){
       })
     }
 
-    ctrl.bookmarkArticle = function(){
-      console.log("worked");
+    /*ctrl.bookmarkArticle = function(){
       var article = ctrl.data.value.data;
-      console.log(currentUser);
       ArticlesService.postArticle(article).then(function(response){
         currentUser.articles.push(article);
       });
-    }
+    }*/
 };
 
 ArticleController.$inject = ['$scope', '$stateParams', 'ArticlesService'];
