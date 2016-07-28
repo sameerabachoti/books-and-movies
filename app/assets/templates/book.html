@@ -5,3 +5,15 @@
   <p>Author: {{book.data.author}}</p>
 </div>
 
+<p>What do you think about this book? Tell us in the comments below:</p>
+<form name="form" ng-submit="book.submitComment()">
+  <textarea name="commentContent" required="required" ng-model="book.commentContent"></textarea><br>
+  <div ng-if="form.commentContent.$touched && form.commentContent.$error.required">
+        Comment must be filled out! 
+  </div>
+  <input type="submit">
+</form>
+
+<div ng-repeat="comment in book.data.value.data.comments">
+  <p>{{comment.content}}</p>
+</div>
