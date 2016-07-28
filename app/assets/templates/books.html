@@ -1,0 +1,12 @@
+<h1>Top NYT Bestsellers</h1>
+<div>
+ 
+<div ui-view></div>
+
+ <input ng-model="book.search"/>
+  <ul class="books">
+    <li ng-repeat="book in books.data.value.data | filter: top.search">
+      <p><a ng-href="/#/books/{{book.id}}">{{book.title}}</a></p>
+    </li>
+  </ul>
+</div>
