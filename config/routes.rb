@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :articles
   end
 
-  resources :books
+  resources :books do 
+    resources :comments
+  end
 
   #get '*path' => 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
