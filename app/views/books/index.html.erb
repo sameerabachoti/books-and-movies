@@ -1,0 +1,9 @@
+<div class="main-view-container" ui-view></div>
+
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+  <%= book.title %><br>
+  <%= book.description %><br>
+  <%= book.publisher %><br><br>
+<%end%>
