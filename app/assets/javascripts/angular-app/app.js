@@ -8,7 +8,7 @@ angular
                 controller: 'TopArticlesController as top'
             })
             .state('article', {
-                url: '/article/:id',
+                url: '/articles/:id',
                 templateUrl: 'article.html',
                 controller: 'ArticleController as article'
             })
@@ -61,6 +61,16 @@ angular
                 url: '/my-articles',
                 templateUrl: 'myArticles.html',
                 controller: 'BookmarkController as myArticles'
-            });
+            })
+            .state('books', {
+                url: '/books',
+                templateUrl: 'books.html',
+                controller: 'TopBooksController as books'
+            })
+            .state('book', {
+                url: '/books/:id',
+                templateUrl: 'book.html',
+                controller: 'BookController as book'
+            })
     });
 
