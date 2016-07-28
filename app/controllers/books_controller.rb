@@ -4,6 +4,11 @@ class BooksController < ApplicationController
   def index
     books = Book.get_books
     @books = Book.all
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @books}
+    end
   end
 
   def show
@@ -12,6 +17,8 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @book}
+      format.json { render json: @comments }
+      format.json { render json: @user }
     end
   end
 
