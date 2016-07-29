@@ -8,8 +8,16 @@ function BooksService($http){
     return $http.get("/books/" + id + ".json");
   }
 
-  this.postComment = function(comment, id){
-    return $http.post("/books/" + id + "/comments", comment);
+  this.postBookReview = function(review, id){
+    return $http.post("/books/" + id + "/book_reviews", review);
+  }
+
+  this.postBook = function(book){
+    return $http.post("/users/" + currentUser.id + "/books", book)
+  }
+
+  this.getCurrentUserBooks = function(id){
+    return $http.get("users/" + id + ".json");
   }
 
 }
