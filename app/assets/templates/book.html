@@ -1,19 +1,25 @@
-<h1>{{book.data.title}}</h1>
+<h1>{{book.data.value.data.title}}</h1>
 <div>
-  <p>Description: {{book.data.description}}</p>
-  <p>Publisher: {{book.data.publisher}}</p>
-  <p>Author: {{book.data.author}}</p>
+  <p>Description: {{book.data.value.data.description}}</p>
+  <p>Publisher: {{book.data.value.data.publisher}}</p>
+  <p>Author: {{book.data.value.data.author}}</p>
+  <p>Contributor: {{book.data.value.data.contributor}}</p>
+  <p>Price: {{book.data.value.data.price}}</p>
+  <p>Weeks on list: {{book.data.value.data.weeks_on_list}}</p>
+  <p>Published date: {{book.data.value.data.published_date}}</p>
 </div>
 
-<p>What do you think about this book? Tell us in the comments below:</p>
-<form name="form" ng-submit="book.submitComment()">
-  <textarea name="commentContent" required="required" ng-model="book.commentContent"></textarea><br>
-  <div ng-if="form.commentContent.$touched && form.commentContent.$error.required">
-        Comment must be filled out! 
+<a href="#" ng-click="book.bookmarkBook()">Bookmark this book</a>
+
+<p>What do you think about this book? Write your own review below:</p>
+<form name="form" ng-submit="book.submitReview()">
+  <textarea name="reviewContent" required="required" ng-model="book.reviewContent"></textarea><br>
+  <div ng-if="form.reviewContent.$touched && form.reviewContent.$error.required">
+        Review must be filled out! 
   </div>
   <input type="submit">
 </form>
 
-<div ng-repeat="comment in book.data.value.data.comments">
-  <p>{{comment.content}}</p>
+<div ng-repeat="review in book.data.value.data.book_reviews">
+  <p>{{review.content}}</p>
 </div>
