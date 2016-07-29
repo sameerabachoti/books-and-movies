@@ -9,9 +9,12 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :movies
+    resources :books
   end
 
-  resources :books 
+  resources :books do
+    resources :book_reviews
+  end
 
   #get '*path' => 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
