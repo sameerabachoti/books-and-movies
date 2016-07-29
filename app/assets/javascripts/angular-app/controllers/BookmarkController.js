@@ -1,4 +1,4 @@
-function BookmarkController($scope, $stateParams, BooksService){
+function BookmarkController($scope, $stateParams, BooksService, MoviesService){
     var ctrl = this;
 
     ctrl.currentUser = currentUser;
@@ -17,7 +17,7 @@ function BookmarkController($scope, $stateParams, BooksService){
 };
 
 
-BookmarkController.$inject = ['$scope', '$stateParams', 'BooksService'];
+BookmarkController.$inject = ['$scope', '$stateParams', 'BooksService', 'MoviesService'];
 
 angular
     .module('app')
