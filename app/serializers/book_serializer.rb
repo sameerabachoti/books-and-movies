@@ -1,5 +1,5 @@
 class BookSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :contributor, :author, :contributor_note, :price, :age_group, :publisher, :primary_isbn13, :primary_isbn10
-  has_many :comments
+  attributes :id, :title, :description, :contributor, :author, :price, :publisher, :list_name, :weeks_on_list
+  has_many :book_reviews
   belongs_to :user
 end
