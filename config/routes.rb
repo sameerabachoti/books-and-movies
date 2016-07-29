@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations' }
   root 'application#index'
-  resources :articles do 
-    resources :comments
+  resources :movies do 
+    resources :movie_reviews
   end
-  resources :comments
+  resources :movie_reviews
   get 'current_user' => "users#current_user"
 
   resources :users do
-    resources :articles
+    resources :movies
   end
 
-  resources :books do 
-    resources :comments
-  end
+  resources :books 
 
   #get '*path' => 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
