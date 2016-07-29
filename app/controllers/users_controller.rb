@@ -10,8 +10,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @user}
-      format.json { render json: @articles }
-      format.json { render json: @articles["user"] }
+      format.json { render json: @movies }
+      format.json { render json: @movies["user"] }
     end
   end
 end
