@@ -13,42 +13,40 @@
 
 ActiveRecord::Schema.define(version: 20160727191221) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.string   "section"
-    t.text     "abstract"
-    t.string   "url"
-    t.string   "byline"
-    t.string   "published_date"
-    t.string   "material_type_facet"
-    t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.string   "contributor"
     t.string   "author"
-    t.string   "contributor_note"
     t.float    "price"
-    t.string   "age_group"
     t.string   "publisher"
-    t.string   "primary_isbn13"
-    t.string   "primary_isbn10"
+    t.string   "list_name"
+    t.integer  "weeks_on_list"
+    t.string   "published_date"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "movie_reviews", force: :cascade do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.integer  "article_id"
-    t.integer  "book_id"
+    t.integer  "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "display_title"
+    t.string   "mpaa_rating"
+    t.text     "critics_pick"
+    t.string   "byline"
+    t.string   "headline"
+    t.string   "summary_short"
+    t.string   "opening_date"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
