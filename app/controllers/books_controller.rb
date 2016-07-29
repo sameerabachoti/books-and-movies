@@ -23,4 +23,17 @@ class BooksController < ApplicationController
     end
   end
 
+  def create
+    @user = User.find(params[:user_id])
+    @book = Book.find(params[:id])
+    @user.books << @book if !@user.books.include?(@book)
+    @book.update(user: current_user)
+    render :json => @book
+  end
+
+  def article_params
+      params.require(:movie).permit(:id, :title, :description, :contributor, :author, :price, :publisher, :list_name, :weeks_on_list)
+  end
+
+
 end
