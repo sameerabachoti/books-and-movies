@@ -5,12 +5,11 @@ class CreateBooks < ActiveRecord::Migration
       t.string :description
       t.string :contributor
       t.string :author
-      t.string :contributor_note
       t.float :price
-      t.string :age_group
       t.string :publisher
-      t.string :primary_isbn13
-      t.string :primary_isbn10
+      t.string :list_name
+      t.integer :weeks_on_list
+      t.string :published_date
       t.integer :user_id
 
       t.timestamps null: false
