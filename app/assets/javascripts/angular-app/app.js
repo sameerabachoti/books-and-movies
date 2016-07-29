@@ -12,22 +12,37 @@ angular
                 templateUrl: 'movie.html',
                 controller: 'MovieController as movie'
             })
-            /*.state('businessDay', {
-                url: '/businessDay',
-                templateUrl: 'businessDay.html',
-                controller: function ($stateParams, ArticlesService, $scope, $filter) {
-                    ArticlesService.getMostViewedArticles().then(
+            .state('books.fiction', {
+                url: '/fiction',
+                templateUrl: 'fiction.html',
+                controller: function ($stateParams, BooksService, $scope, $filter) {
+                    BooksService.getTopBooks().then(
                         function(result) {
-                           $scope.articles = result.data;
-                           $scope.search = 'Business Day';
+                           $scope.books = result.data;
+                           $scope.search = 'Combined Print and E-Book Fiction';
  
-                           $scope.filteredArticles = $filter('filter')($scope.articles, $scope.search);
+                           $scope.filteredBooks = $filter('filter')($scope.books, $scope.search);
                         }
                     );
               
                 }
             })
-            .state('home.technology', {
+            .state('books.nonfiction', {
+                url: '/nonfiction',
+                templateUrl: 'nonfiction.html',
+                controller: function ($stateParams, BooksService, $scope, $filter) {
+                    BooksService.getTopBooks().then(
+                        function(result) {
+                           $scope.books = result.data;
+                           $scope.search = 'Combined Print and E-Book Nonfiction';
+ 
+                           $scope.filteredBooks = $filter('filter')($scope.books, $scope.search);
+                        }
+                    );
+              
+                }
+            })
+            /*.state('home.technology', {
                 url: '/technology',
                 templateUrl: 'technology.html',
                 controller: function ($stateParams, ArticlesService, $scope, $filter) {
