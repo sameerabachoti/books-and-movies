@@ -1,0 +1,12 @@
+<h1>Top Movies</h1>
+<div>
+ 
+<div ui-view></div>
+
+ <input ng-model="movies.search"/>
+  <ul class="movies">
+    <li ng-repeat="movie in movies.data.value.data | filter: movies.search">
+      <p><a ng-href="/#/movies/{{movie.id}}">{{movie.display_title}}</a></p>
+    </li>
+  </ul>
+</div>

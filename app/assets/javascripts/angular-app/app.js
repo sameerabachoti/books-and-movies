@@ -2,17 +2,17 @@ angular
     .module('app', ['ngAnimate', 'ui.router', 'templates'])
     .config(function ($stateProvider) {
         $stateProvider
-            .state('home', {
-                url: '/',
-                templateUrl: 'home.html',
-                controller: 'TopArticlesController as top'
+            .state('movies', {
+                url: '/movies',
+                templateUrl: 'movies.html',
+                controller: 'TopMoviesController as movies'
             })
-            .state('article', {
-                url: '/articles/:id',
-                templateUrl: 'article.html',
-                controller: 'ArticleController as article'
+            .state('movie', {
+                url: '/movies/:id',
+                templateUrl: 'movie.html',
+                controller: 'MovieController as movie'
             })
-            .state('businessDay', {
+            /*.state('businessDay', {
                 url: '/businessDay',
                 templateUrl: 'businessDay.html',
                 controller: function ($stateParams, ArticlesService, $scope, $filter) {
@@ -56,11 +56,11 @@ angular
                     );
               
                 }
-            })
-            .state('my-articles', {
-                url: '/my-articles',
-                templateUrl: 'myArticles.html',
-                controller: 'BookmarkController as myArticles'
+            })*/
+            .state('my-movies', {
+                url: '/my-movies',
+                templateUrl: 'myMovies.html',
+                controller: 'BookmarkController as myMovies'
             })
             .state('books', {
                 url: '/books',

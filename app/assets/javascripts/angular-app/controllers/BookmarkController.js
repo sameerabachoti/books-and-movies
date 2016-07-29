@@ -1,16 +1,16 @@
-function BookmarkController($scope, $stateParams, ArticlesService){
+function BookmarkController($scope, $stateParams, MoviesService){
     var ctrl = this;
 
     ctrl.currentUser = currentUser;
 
-    ctrl.getMyArticles = function(){
-      ArticlesService.getCurrentUserArticles(currentUser.id).then(function(response){
-        ctrl.articles = response.data.articles;
+    ctrl.getMyMovies = function(){
+      MoviesService.getCurrentUserMovies(currentUser.id).then(function(response){
+        ctrl.movies = response.data.movies;
       });
     }
 };
 
-ArticleController.$inject = ['$scope', '$stateParams', 'ArticlesService'];
+BookmarkController.$inject = ['$scope', '$stateParams', 'MoviesService'];
 
 angular
     .module('app')

@@ -1,0 +1,24 @@
+<h1>{{movie.data.value.data.display_title}}</h1>
+<div>
+  <p>MPAA Rating: {{movie.data.value.data.mpaa_rating}}</p>
+  <p>Critics Pick: {{movie.data.value.data.critics_pick}}</p>
+  <p>Byline: {{movie.data.value.data.byline}}</p>
+  <p>Headline: {{movie.data.value.data.headline}}</p>
+  <p>Summary Short: {{movie.data.value.data.summary_short}}</p>
+  <p>Opening date: {{movie.data.value.data.opening_date}}</p>
+</div>
+
+<a href="#" ng-click="movie.bookmarkMovie()">Bookmark this movie</a>
+
+<p>Want to add your own movie review? Fill out the form below:</p>
+<form name="form" ng-submit="movie.submitReview()">
+  <textarea name="reviewContent" required="required" ng-model="movie.reviewContent"></textarea><br>
+  <div ng-if="form.reviewContent.$touched && form.reviewContent.$error.required">
+        Review must be filled out! 
+  </div>
+  <input type="submit">
+</form>
+
+<div ng-repeat="review in movie.data.value.data.movie_reviews">
+  <p>{{review.content}}</p>
+</div>
