@@ -62,6 +62,11 @@ angular
                 templateUrl: 'myMovies.html',
                 controller: 'BookmarkController as myMovies'
             })
+            .state('my-books', {
+                url: '/my-books',
+                templateUrl: 'myBooks.html',
+                controller: 'BookmarkController as myBooks'
+            })
             .state('books', {
                 url: '/books',
                 templateUrl: 'books.html',
