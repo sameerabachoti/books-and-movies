@@ -6,7 +6,8 @@
 <nav class="nav">
     <ul>
           <% if current_user %>
-            <p><a href="http://localhost:3000/#/">Home</a></p>
+            <p><a ui-sref="movies">Movies</a></p>
+             <p><a ui-sref="my-movies">My Movies</a></p>
             <%= link_to "Sign out", destroy_user_session_path, :class => "nav_button", method: :delete %>
           <%else%>
             <%= link_to "Sign In", user_session_path, :class => "nav_button"%>
