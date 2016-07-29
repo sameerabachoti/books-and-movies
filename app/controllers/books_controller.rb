@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    books = Book.get_books
+    Book.get_fiction_books
+    Book.get_nonfiction_books
     @books = Book.all
 
     respond_to do |format|
@@ -17,7 +18,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @book}
-      format.json { render json: @comments }
+      #format.json { render json: @comments }
       format.json { render json: @user }
     end
   end
