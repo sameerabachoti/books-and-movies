@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  has_many :comments
+  has_many :book_reviews
   belongs_to :user
 
   def self.get_fiction_books
