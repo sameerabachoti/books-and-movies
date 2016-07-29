@@ -18,7 +18,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @book}
-      #format.json { render json: @comments }
+      format.json { render json: @book_reviews }
       format.json { render json: @user }
     end
   end
