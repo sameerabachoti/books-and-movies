@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url("https://fonts.googleapis.com/css?family=News+Cycle:400,700");
+
+.title{
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+}
+
+.title:hover{
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+}
+
+.nav_button{
+  margin-left: 900px;
+}
+
+nav.nav{
+  background-color: #6495ed;
+  margin-top: -8px;
+  padding: 30px;
+  margin-left: 0;
+}
+
+.current_user{
+  margin-left: 1000px;
+}
+
+body{
+  margin: auto;
+  text-align: center;
+}
+
+
+
+
