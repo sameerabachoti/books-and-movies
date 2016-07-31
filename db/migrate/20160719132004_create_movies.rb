@@ -8,6 +8,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :headline
       t.string :summary_short
       t.string :opening_date
+      t.string :image
       t.integer :user_id
 
       t.timestamps null: false

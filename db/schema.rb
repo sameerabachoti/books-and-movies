@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20160729140416) do
     t.string   "publisher"
     t.string   "list_name"
     t.integer  "weeks_on_list"
-    t.string   "published_date"
+    t.string   "image"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "movie_reviews", force: :cascade do |t|
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160729140416) do
     t.string   "headline"
     t.string   "summary_short"
     t.string   "opening_date"
+    t.string   "image"
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
