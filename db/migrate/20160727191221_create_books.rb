@@ -9,6 +9,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :publisher
       t.string :list_name
       t.integer :weeks_on_list
+      t.string :image
       t.integer :user_id
 
       t.timestamps null: false
