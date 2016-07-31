@@ -15,32 +15,12 @@ angular
             .state('books.fiction', {
                 url: '/fiction',
                 templateUrl: 'fiction.html',
-                controller: function ($stateParams, BooksService, $scope, $filter) {
-                    BooksService.getTopBooks().then(
-                        function(result) {
-                           $scope.books = result.data;
-                           $scope.search = 'Combined Print and E-Book Fiction';
- 
-                           $scope.filteredBooks = $filter('filter')($scope.books, $scope.search);
-                        }
-                    );
-              
-                }
+                controller: 'FictionController as fiction'
             })
             .state('books.nonfiction', {
                 url: '/nonfiction',
                 templateUrl: 'nonfiction.html',
-                controller: function ($stateParams, BooksService, $scope, $filter) {
-                    BooksService.getTopBooks().then(
-                        function(result) {
-                           $scope.books = result.data;
-                           $scope.search = 'Combined Print and E-Book Nonfiction';
- 
-                           $scope.filteredBooks = $filter('filter')($scope.books, $scope.search);
-                        }
-                    );
-              
-                }
+                controller: 'NonfictionController as nonfiction'
             })
             .state('my-movies', {
                 url: '/my-movies',
