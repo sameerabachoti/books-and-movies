@@ -14,7 +14,8 @@ function BookController($scope, $stateParams, BooksService){
        var book = ctrl.data.value.data;   
        BooksService.postBook(book).then(function(response){   
          currentUser.books.push(book);   
-       });   
+       }); 
+       alert("You have bookmarked this book.")  
     }
 };
 
