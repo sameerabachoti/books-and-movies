@@ -7,9 +7,9 @@
 <h1>The New York Times Bestsellers</h1>
 
  <input ng-model="book.search"/>
-  <ul class="books">
-    <li ng-repeat="book in books.data.value.data | filter: book.search">
-      <p><a ng-href="/#/books/{{book.id}}">{{book.title}}</a></p>
-    </li>
-  </ul>
+  <div class="books">
+    <div ng-repeat="book in books.data.value.data | filter: book.search">
+      <p><a ui-sref="book({id: book.id})">{{book.title}}</a></p>
+    </div>
+  </div>
 </div>
