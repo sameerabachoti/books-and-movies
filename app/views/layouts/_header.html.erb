@@ -1,21 +1,20 @@
-<nav class="nav">
+<nav class="navbar-inverse">
     <%= link_to "Books And Movies", root_path, :class => "title" %>
-    
+
       <% if current_user %>
         <div class="current_user">
-          <a ui-sref="movies">Movies</a>
-          <a ui-sref="my-movies">My Movies</a>
-          <a ui-sref="books">Books</a>
-          <a ui-sref="my-books">My Books</a>
+          <a ui-sref="movies" class="menu">Movies</a>
+          <a ui-sref="my-movies" class="menu">My Movies</a>
+          <a ui-sref="books" class="menu">Books</a>
+          <a ui-sref="my-books" class="menu">My Books</a>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
         </div>
       <%else%>
-          <%= link_to "Sign In", user_session_path, :class => "nav_button" %>
-          <%= link_to "Sign Up", new_user_registration_path %>
+        <div class="current_user">
+          <%= link_to "Sign In", user_session_path, :class => "menu" %>
+          <%= link_to "Sign Up", new_user_registration_path, :class => "menu" %>
+        </div>
       <% end %> 
 </nav>
 
 <br><br><br>
-<% if current_user %>
-   <div class="welcome">Hello <%= current_user.email %>!<br><br></div>
-<% end %>
