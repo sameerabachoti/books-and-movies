@@ -33,6 +33,10 @@ gem 'angular-rails-templates'
 gem 'responders', '~> 2.0' 
 gem 'devise'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'bootswatch-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
