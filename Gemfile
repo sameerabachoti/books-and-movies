@@ -37,6 +37,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'bootswatch-rails'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
