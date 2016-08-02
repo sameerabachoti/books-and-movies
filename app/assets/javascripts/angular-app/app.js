@@ -27,6 +27,11 @@ angular
                 templateUrl: 'myMovies.html',
                 controller: 'BookmarkController as myMovies'
             })
+            .state('new-movie', {
+                url: '/',
+                templateUrl: 'new-movie.html',
+                controller: 'TopMoviesController as movies'
+            })
             .state('my-books', {
                 url: '/my-books',
                 templateUrl: 'myBooks.html',
@@ -41,6 +46,11 @@ angular
                 url: '/books/:id',
                 templateUrl: 'book.html',
                 controller: 'BookController as book'
+            })
+            .state('new-book', {
+                url: '/',
+                templateUrl: 'new-book.html',
+                controller: 'TopBooksController as books'
             })
     });
 
