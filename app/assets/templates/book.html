@@ -9,18 +9,30 @@
   <p>Weeks on list: {{book.data.value.data.weeks_on_list}}</p>
   <p>Published date: {{book.data.value.data.published_date}}</p>
 </div>
-
+<br>
 <a href="#" ng-click="book.bookmarkBook()">Bookmark this book</a>
-
+<br><br>
 <p>What do you think about this book? Write your own review below:</p>
 <form name="form" ng-submit="book.submitReview()">
+  Book Rating:
+  <select name="reviewRating" required="required" ng-model="book.reviewRating">
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+    <option value=5>5</option>
+  </select>
+  <br><br>
+  Review:<br>
   <textarea name="reviewContent" required="required" ng-model="book.reviewContent"></textarea><br>
   <div ng-if="form.reviewContent.$touched && form.reviewContent.$error.required">
         Review must be filled out! 
   </div>
   <input type="submit">
 </form>
+<br>
 
 <div ng-repeat="review in book.data.value.data.book_reviews">
+  <p class="rating">{{review.rating}} stars</p>
   <p>{{review.content}}</p>
 </div>
