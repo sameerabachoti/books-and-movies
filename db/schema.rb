@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160729140416) do
 
   create_table "book_reviews", force: :cascade do |t|
     t.string   "content"
+    t.integer  "rating"
     t.integer  "user_id"
     t.integer  "book_id"
     t.datetime "created_at", null: false
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160729140416) do
 
   create_table "movie_reviews", force: :cascade do |t|
     t.string   "content"
+    t.integer  "rating"
     t.integer  "user_id"
     t.integer  "movie_id"
     t.datetime "created_at", null: false
