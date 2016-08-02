@@ -19,6 +19,11 @@ function MoviesService($http){
   this.getCurrentUserMovies = function(id){
     return $http.get("users/" + id + ".json");
   }
+
+  this.postNewMovie = function(movie){
+    console.log("service");
+    return $http.post("/movies.json", movie);
+  }
 }
 
 MoviesService.$inject = ['$http']
