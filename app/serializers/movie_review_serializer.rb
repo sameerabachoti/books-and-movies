@@ -1,5 +1,5 @@
 class MovieReviewSerializer < ActiveModel::Serializer
-  attributes :id, :content, :movie, :user
+  attributes :id, :content, :rating, :movie, :user
   has_one :movie
   has_one :user
 end
