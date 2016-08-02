@@ -23,14 +23,18 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @movie = Movie.find(params[:id])
-    @user.movies << @movie if !@user.movies.include?(@movie)
-    @movie.update(user: current_user)
+    if params[:id] != nil && params[:user_id] != nil
+      @user = User.find(params[:user_id])
+      @movie = Movie.find(params[:id])
+      @user.movies << @movie if !@user.movies.include?(@movie)
+      @movie.update(user: current_user)
+    else
+      @movie = Movie.create(display_title: movie_params[:display_title], summary_short: movie_params[:summary_short])
+    end
     render :json => @movie
   end
 
-  def article_params
+  def movie_params
       params.require(:movie).permit(:id, :display_title, :mpaa_rating, :critics_pick, :byline, :headline, :summary_short, :opening_date)
   end
 
