@@ -2,8 +2,12 @@ class BookReviewsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-     @book = Book.find(params[:book_id])
-     @book_reviews = @book.book_reviews
+     @book_reviews = BookReview.all
+     #@book_reviews = @book.book_reviews
+     respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @book_reviews}
+    end
   end
 
   def new
@@ -15,6 +19,16 @@ class BookReviewsController < ApplicationController
     @book_review = BookReview.create(book_review_params)
     @book_review = @book.book_reviews.build(book_review_params)
     render :json => @book_review
+  end
+
+  def show
+    @book_review = BookReview.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @book_review}
+      format.json { render json: @book_review["user"] }
+    end
   end
 
   def edit
