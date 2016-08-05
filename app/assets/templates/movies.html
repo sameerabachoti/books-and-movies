@@ -1,12 +1,16 @@
 <h1>Top Movies</h1>
+<br>
 <div>
  
 <div ui-view></div>
-
- <input ng-model="movies.search"/>
+ <p>Search for a movie here:</p>
+ <input ng-model="movies.search"/><br><br>
   <div class="movies">
     <div ng-repeat="movie in movies.data.value.data | filter: movies.search">
       <p><a ui-sref="movie({id: movie.id})">{{movie.display_title}}</a></p>
     </div>
   </div>
 </div>
+
+<p>Don't see your favorite movie? Add one here.</p>
+<a ui-sref="new-movie">New Movie</a>
