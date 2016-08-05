@@ -22,6 +22,9 @@
     <option value=4>4</option>
     <option value=5>5</option>
   </select>
+  <div ng-if="form.reviewRating.$touched && form.reviewRating.$error.required">
+        Please select a rating.
+  </div>
   <br><br>
   Review:<br>
   <textarea name="reviewContent" required="required" ng-model="book.reviewContent"></textarea><br>
@@ -33,6 +36,8 @@
 <br>
 
 <div ng-repeat="review in book.data.value.data.book_reviews">
+  <br>
+  {{review.user.name}}<br>
   <p class="rating">{{review.rating}} stars</p>
-  <p>{{review.content}}</p>
+  {{review.content}}<br>
 </div>
