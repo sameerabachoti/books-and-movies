@@ -11,6 +11,39 @@ class MoviesController < ApplicationController
     end
   end
 
+  def create
+    if params[:id] != nil && params[:user_id] != nil
+      @user = User.find(params[:user_id])
+      @movie = Movie.find(params[:id])
+      @user.movies << @movie if !@user.movies.include?(@movie)
+      @movie.update(user: current_user)
+    else
+      @movie = Movie.create(display_title: movie_params[:display_title], mpaa_rating: movie_params[:mpaa_rating], summary_short: movie_params[:summary_short])
+    end
+    render :json => @movie
+  end
+
+  def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    @movie.update(movie_params)
+    respond_to do |f|
+        f.json {render json: @movie}
+    end
+  end
+
+  def destroy
+    binding.pry
+    @movie = Movie.find(params[:id]).destroy
+    respond_to do |f|
+        f.json {render json: @movie}
+    end
+  end 
+
+
   def show
     @movie = Movie.find(params[:id])
 
@@ -20,18 +53,6 @@ class MoviesController < ApplicationController
       format.json { render json: @movie_reviews}
       format.json { render json: @user }
     end
-  end
-
-  def create
-    if params[:id] != nil && params[:user_id] != nil
-      @user = User.find(params[:user_id])
-      @movie = Movie.find(params[:id])
-      @user.movies << @movie if !@user.movies.include?(@movie)
-      @movie.update(user: current_user)
-    else
-      @movie = Movie.create(display_title: movie_params[:display_title], summary_short: movie_params[:summary_short])
-    end
-    render :json => @movie
   end
 
   def movie_params
