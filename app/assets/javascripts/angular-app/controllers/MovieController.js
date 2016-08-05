@@ -1,6 +1,7 @@
 function MovieController($scope, $stateParams, MoviesService){
     var ctrl = this;
     ctrl.data = MoviesService.getMovie($stateParams.id).$$state;
+    ctrl.movies = MoviesService.getMovies().$$state;
     ctrl.currentUser = currentUser;
 
     ctrl.submitReview = function(){
@@ -14,8 +15,14 @@ function MovieController($scope, $stateParams, MoviesService){
        var movie = ctrl.data.value.data;   
        MoviesService.postMovie(movie).then(function(response){
          currentUser.movies.push(movie);   
-         console.log(currentUser.movies);
        });   
+    }
+
+    ctrl.deleteMovie = function(){
+      movie = ctrl.data.value.data;
+      MoviesService.deleteMovie(movie).then(function(response) {
+        ctrl.movies.value.data.splice(ctrl.movies.value.data.indexOf(movie), 1);
+      })
     }
 };
 
