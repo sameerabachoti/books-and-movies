@@ -21,8 +21,15 @@ function MoviesService($http){
   }
 
   this.postNewMovie = function(movie){
-    console.log("service");
     return $http.post("/movies.json", movie);
+  }
+
+  this.editMovie = function(id, movie){
+    return $http.put("/movies/" + id + ".json", movie);
+  }
+
+  this.deleteMovie = function(movie){
+    return $http.delete("/movies/" + movie.id + ".json");
   }
 }
 
