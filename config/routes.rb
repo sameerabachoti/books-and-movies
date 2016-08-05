@@ -5,6 +5,12 @@ Rails.application.routes.draw do
     resources :movie_reviews
   end
   resources :movie_reviews
+
+  resources :books do 
+    resources :book_reviews
+  end
+  resources :book_reviews
+
   get 'current_user' => "users#current_user"
 
   resources :users do
