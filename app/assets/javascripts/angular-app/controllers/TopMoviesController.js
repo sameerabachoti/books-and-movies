@@ -8,13 +8,8 @@ function TopMoviesController($stateParams, MoviesService){
       MoviesService.postNewMovie(movie).then(function(response) {
         ctrl.data.value.data.push(movie);
       })
-  }
 
-  ctrl.editMovie = function(){
-      var movie = {display_title: ctrl.displayTitle, mpaa_rating: ctrl.displayRating, summary_short: ctrl.summaryShort};
-      MoviesService.editMovie($stateParams.id, movie).then(function(response) {
-        ctrl.data.value.data.push(movie);
-      })
+      ctrl.new_message = "This movie has been added.";
   }
 
 };
