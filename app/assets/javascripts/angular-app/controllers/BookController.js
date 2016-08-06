@@ -1,7 +1,7 @@
 function BookController($scope, $stateParams, BooksService){
     var ctrl = this;
     ctrl.data = BooksService.getBook($stateParams.id).$$state;
-    ctrl.currentUser = currentUser;
+    ctrl.books = BooksService.getTopBooks().$$state;
     
     ctrl.submitReview = function(){
       var review = {book_id: $stateParams.id, content: ctrl.reviewContent, rating: ctrl.reviewRating, user_id: currentUser.id};
@@ -22,6 +22,7 @@ function BookController($scope, $stateParams, BooksService){
       var book = {title: ctrl.data.value.data.title, author: ctrl.data.value.data.author, description: ctrl.data.value.data.description};
       BooksService.editBook($stateParams.id, book).then(function(response) {
         ctrl.books.value.data.push(book);
+        ctrl.edit_message = "This book has been edited."
       })
     }
 
@@ -31,6 +32,7 @@ function BookController($scope, $stateParams, BooksService){
         BooksService.deleteBook(book).then(function(response) {
           ctrl.books.value.data.splice(ctrl.books.value.data.indexOf(book), 1);
         })
+        ctrl.delete_message = "This book has been deleted."
       }
       else{
         location.reload();
