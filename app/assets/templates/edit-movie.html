@@ -1,9 +1,12 @@
+<br>
+<p>{{movie.edit_message}}</p>
+
 <h2>Edit Movie</h2><br>
-<form name="form" ng-submit="movies.editMovie()">
+<form name="form" ng-submit="movie.editMovie()">
   Title:<br> 
-  <input name="displayTitle" required="required" ng-model="movies.displayTitle"><br><br>
+  <input name="displayTitle" required="required" ng-model="movie.data.value.data.display_title"><br><br>
   MPAA Rating:<br>
-  <select name="mpaaRating" required="required" ng-model="movies.displayRating">
+  <select name="mpaaRating" required="required" ng-model="movie.data.value.data.mpaa_rating">
     <option value="G">G</option>
     <option value="PG">PG</option>
     <option value="PG-13">PG-13</option>
@@ -11,6 +14,6 @@
     <option value="NC-17">NC-17</option>
   </select><br><br>
   Short Summary:<br>
-  <textarea name="summaryShort" required="required" ng-model="movies.summaryShort"></textarea><br><br>
+  <textarea name="summaryShort" required="required" ng-model="movie.data.value.data.summary_short"></textarea><br><br>
   <input type="submit">
 </form>
