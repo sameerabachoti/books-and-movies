@@ -35,8 +35,10 @@
 }
 
 .menu:hover{
-  color: red;
+  background-color: #6495ed;
   text-decoration: none;
+  padding-bottom: 2px;
+  padding-top: 2px;
 }
 
 .menu:visited{
@@ -55,8 +57,32 @@
 .menu{
   color: white;
   padding: 10px;
+  padding-bottom: 20px;
 }
 
+.rating{
+  font-weight: bold;
+}
+
+.review_form{
+  border: 1px solid;
+  width: 50%;
+  margin-left: 360px;
+  padding-top: 20px;
+  border-radius: 5px
+}
+
+.review{
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #cccccc;
+  width: 50%;
+  margin-left: 360px;
+}
+
+.navbar-inverse{
+  padding-bottom: 20px;
+}
 
 
 

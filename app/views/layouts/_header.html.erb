@@ -7,7 +7,7 @@
           <a ui-sref="my-movies" class="menu">My Movies</a>
           <a ui-sref="books" class="menu">Books</a>
           <a ui-sref="my-books" class="menu">My Books</a>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <%= link_to "Sign out", destroy_user_session_path, :class => "menu", method: :delete %>
         </div>
       <%else%>
         <div class="current_user">
