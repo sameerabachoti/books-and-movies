@@ -1,5 +1,9 @@
-<a ui-sref="edit-movie({id: movie.data.value.data.id})">Edit</a>
-<a href="#" ng-click="movie.deleteMovie()">Delete</a>
+<br>
+<p>{{movie.delete_message}}</p>
+
+<a class="btn btn-primary" ui-sref="edit-movie({id: movie.data.value.data.id})">Edit</a>
+<a class="btn btn-primary" href="#" ng-click="movie.deleteMovie()">Delete</a>
+
 <h1>{{movie.data.value.data.display_title}}</h1>
 <img src={{movie.data.value.data.image}}><br><br><br>
 <div>
@@ -7,21 +11,41 @@
   <p>Critics Pick: {{movie.data.value.data.critics_pick}}</p>
   <p>Byline: {{movie.data.value.data.byline}}</p>
   <p>Headline: {{movie.data.value.data.headline}}</p>
-  <p>Summary Short: {{movie.data.value.data.summary_short}}</p>
+  <p>Short summary: {{movie.data.value.data.summary_short}}</p>
   <p>Opening date: {{movie.data.value.data.opening_date}}</p>
 </div>
 
-<a href="#" ng-click="movie.bookmarkMovie()">Bookmark this movie</a>
+<a class="btn btn-info" href="#" ng-click="movie.bookmarkMovie()">Bookmark this movie</a><br><br><br>
 
 <p>Want to add your own movie review? Fill out the form below:</p>
-<form name="form" ng-submit="movie.submitReview()">
-  <textarea name="reviewContent" required="required" ng-model="movie.reviewContent"></textarea><br>
-  <div ng-if="form.reviewContent.$touched && form.reviewContent.$error.required">
-        Review must be filled out! 
-  </div>
-  <input type="submit">
-</form>
 
-<div ng-repeat="review in movie.data.value.data.movie_reviews">
-  <p>{{review.content}}</p>
+<div class="review_form">
+  <form name="form" ng-submit="movie.submitReview()">
+    Movie Rating:
+    <select name="reviewRating" required="required" ng-model="movie.reviewRating">
+      <option value=1>1</option>
+      <option value=2>2</option>
+      <option value=3>3</option>
+      <option value=4>4</option>
+      <option value=5>5</option>
+    </select>
+    <div ng-if="form.reviewRating.$touched && form.reviewRating.$error.required">
+          Please select a rating.
+    </div>
+    <br><br>
+    Review:<br>
+    <textarea name="reviewContent" required="required" ng-model="movie.reviewContent"></textarea><br>
+    <div ng-if="form.reviewContent.$touched && form.reviewContent.$error.required">
+          Review must be filled out! 
+    </div>
+    <input type="submit">
+  </form>
+</div>
+<br><br>
+
+<div class="review" ng-repeat="review in movie.data.value.data.movie_reviews">
+  <br>
+  {{review.user.name}}<br>
+  <p class="rating">{{review.rating}} stars</p>
+  {{review.content}}<br>
 </div>
