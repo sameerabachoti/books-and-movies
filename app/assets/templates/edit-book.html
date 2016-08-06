@@ -1,0 +1,11 @@
+<p>{{movies.data}}</p>
+<h2>Edit Book</h2><br>
+<form name="form" ng-submit="book.editBook()">
+  Title:<br> 
+  <input name="title" required="required" ng-model="book.data.value.data.title"><br><br>
+  Author:<br> 
+  <input name="author" required="required" ng-model="book.data.value.data.author"><br><br>
+  Description:<br>
+  <textarea name="description" required="required" ng-model="book.data.value.data.description"></textarea><br><br>
+  <input type="submit">
+</form>
