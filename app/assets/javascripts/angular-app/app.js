@@ -1,5 +1,5 @@
 angular
-    .module('app', ['ngAnimate', 'ui.router', 'templates', 'initialValue'])
+    .module('app', ['ngAnimate', 'ui.router', 'templates'])
     .config(function ($stateProvider) {
         $stateProvider
             .state('movies', {
