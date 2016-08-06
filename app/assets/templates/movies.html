@@ -1,16 +1,24 @@
-<h1>Top Movies</h1>
-<br>
-<div>
- 
+<h3>Popular Movies</h3><br>
+<p>This is a list of popular movies from the New York Times. Don't see your favorite movie? Add one here.</p>
+<a ui-sref="new-movie">New Movie</a><br><br>
+
 <div ui-view></div>
- <p>Search for a movie here:</p>
- <input ng-model="movies.search"/><br><br>
+ <p>Search for a movie here: {{movies.search}} </p>
+ <input data-ng-model="movies.search"/><br><br>
   <div class="movies">
+    <h4>NYT Movies</h4>
     <div ng-repeat="movie in movies.data.value.data | filter: movies.search">
-      <p><a ui-sref="movie({id: movie.id})">{{movie.display_title}}</a></p>
+     <div ng-if="movie.image != null">
+        <p><a ui-sref="movie({id: movie.id})">{{movie.display_title}}</a></p>
+     </div>
+    </div>
+    <br>
+    <h4>User-created Movies</h4>
+    <p>This a list of movies that our users have added.</p>
+    <div ng-repeat="movie in movies.data.value.data | filter: movies.search">
+     <div ng-if="movie.image == null">
+        <p><a ui-sref="movie({id: movie.id})">{{movie.display_title}}</a></p>
+     </div>
     </div>
   </div>
-</div>
 
-<p>Don't see your favorite movie? Add one here.</p>
-<a ui-sref="new-movie">New Movie</a>
