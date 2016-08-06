@@ -1,0 +1,11 @@
+<h2>Add A New Book</h2><br>
+
+<form name="form" ng-submit="books.addBook()">
+  Title:<br> 
+  <input name="title" required="required" ng-model="books.title"><br><br>
+  Author:<br> 
+  <input name="author" required="required" ng-model="books.author"><br><br>
+  Description:<br>
+  <textarea name="description" required="required" ng-model="books.description"></textarea><br><br>
+  <input type="submit">
+</form>
