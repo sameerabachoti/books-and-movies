@@ -36,7 +36,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @movie = Movie.find(params[:id]).destroy
     respond_to do |f|
         f.json {render json: @movie}
