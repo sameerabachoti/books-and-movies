@@ -2,8 +2,11 @@ class MovieReviewsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-     @movie = Movie.find(params[:movie_id])
-     @movie_reviews = @movie.movie_reviews
+     @movie_reviews = MovieReview.all
+     respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @movie_reviews}
+    end
   end
 
   def new

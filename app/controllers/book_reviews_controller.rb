@@ -3,7 +3,6 @@ class BookReviewsController < ApplicationController
 
   def index
      @book_reviews = BookReview.all
-     #@book_reviews = @book.book_reviews
      respond_to do |format|
       format.html { render :index }
       format.json { render json: @book_reviews}
