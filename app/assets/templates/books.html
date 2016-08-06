@@ -1,18 +1,27 @@
-<div>
-
+<h3>Popular Books</h3><br>
+<p>This is a list of the latest NYT Bestsellers. Don't see your favorite book? Add one here.</p>
+<a ui-sref="new-book">New Book</a><br><br>
 <h4><a ui-sref="books.fiction">Fiction</a> | <a ui-sref="books.nonfiction">Nonfiction</a></h4>
 
 <div ui-view></div>
 
-<h1>The New York Times Bestsellers</h1>
 <br>
- <p>Search for a book here:</p>
+ <p>Search for a book: {{book.search}} </p>
  <p>
  <input data-ng-model="book.search"/><br><br>
- <p>{{ book.search }}</p>
   <div class="books">
+    <h4>NYT Bestsellers</h4>
     <div ng-repeat="book in books.data.value.data | filter: book.search">
-      <p><a ui-sref="book({id: book.id})">{{book.title}}</a></p>
+      <div ng-if="book.image != null">
+        <p><a ui-sref="book({id: book.id})">{{book.title}}</a></p>
+      </div>
+    </div>
+    <br>
+    <h4>User-created Books</h4>
+    <p>This a list of books that our users have added.</p>
+    <div ng-repeat="book in books.data.value.data | filter: book.search">
+      <div ng-if="book.image == null">
+        <p><a ui-sref="book({id: book.id})">{{book.title}}</a></p>
+      </div>
     </div>
   </div>
-</div>
