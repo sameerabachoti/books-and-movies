@@ -20,6 +20,18 @@ function BooksService($http){
     return $http.get("users/" + id + ".json");
   }
 
+  this.postNewBook = function(book){
+    return $http.post("/books.json", book);
+  }
+
+  this.editBook = function(id, book){
+    return $http.put("/books/" + id + ".json", book);
+  }
+
+  this.deleteBook = function(book){
+    return $http.delete("/books/" + book.id + ".json");
+  }
+
 }
 
 BooksService.$inject = ['$http']
