@@ -1,5 +1,5 @@
 angular
-    .module('app', ['ngAnimate', 'ui.router', 'templates', 'ngMessages'])
+    .module('app', ['ngAnimate', 'ui.router', 'templates', 'initialValue'])
     .config(function ($stateProvider) {
         $stateProvider
             .state('movies', {
@@ -35,7 +35,7 @@ angular
             .state('edit-movie', {
                 url: '/edit-movie/:id',
                 templateUrl: 'edit-movie.html',
-                controller: 'TopMoviesController as movies'
+                controller: 'MovieController as movie'
             })
             .state('delete-movie', {
                 url: '/delete-movie/:id',
@@ -60,6 +60,16 @@ angular
             .state('new-book', {
                 url: '/new-book',
                 templateUrl: 'new-book.html',
+                controller: 'TopBooksController as books'
+            })
+            .state('edit-book', {
+                url: '/edit-book/:id',
+                templateUrl: 'edit-book.html',
+                controller: 'BookController as book'
+            })
+            .state('delete-book', {
+                url: '/delete-book/:id',
+                templateUrl: 'book.html',
                 controller: 'TopBooksController as books'
             })
     });

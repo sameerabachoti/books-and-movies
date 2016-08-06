@@ -17,6 +17,25 @@ function BookController($scope, $stateParams, BooksService){
        }); 
        alert("You have bookmarked this book.")  
     }
+
+    ctrl.editBook = function(){
+      var book = {title: ctrl.data.value.data.title, author: ctrl.data.value.data.author, description: ctrl.data.value.data.description};
+      BooksService.editBook($stateParams.id, book).then(function(response) {
+        ctrl.books.value.data.push(book);
+      })
+    }
+
+    ctrl.deleteBook = function(){
+     if (confirm("Are you sure you want to delete this movie?")){
+        book = ctrl.data.value.data;
+        BooksService.deleteBook(book).then(function(response) {
+          ctrl.books.value.data.splice(ctrl.books.value.data.indexOf(book), 1);
+        })
+      }
+      else{
+        location.reload();
+      }
+    }
 };
 
 BookController.$inject = ['$scope', '$stateParams', 'BooksService'];
