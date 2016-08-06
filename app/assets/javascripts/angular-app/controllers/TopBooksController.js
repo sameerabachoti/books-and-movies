@@ -8,6 +8,7 @@ function TopBooksController($stateParams, BooksService){
       BooksService.postNewBook(book).then(function(response) {
         ctrl.data.value.data.push(book);
       })
+      ctrl.new_message = "This book has been added."
   }
 };
 
