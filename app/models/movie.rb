@@ -1,7 +1,6 @@
 class Movie < ActiveRecord::Base
   has_many :movie_reviews
   belongs_to :user
-  belongs_to :creator, :class_name => "User"
 
   def self.get_movies
     response = HTTParty.get("http://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=#{ENV["API_KEY"]}")
