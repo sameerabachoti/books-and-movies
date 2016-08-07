@@ -17,3 +17,11 @@ Install Rails if not already installed. To install the app and start the rails s
 
 4. $ rails s
 ```
+
+## Contributions 
+
+Contributions are always welcome. Feel free to fork and clone this repository, propose changes, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. Please see [LICENSE.md](LICENSE.md) for more information.
