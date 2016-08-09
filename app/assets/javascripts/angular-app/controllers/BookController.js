@@ -7,6 +7,7 @@ function BookController($scope, $stateParams, BooksService){
                 });*/
 
     ctrl.data = BooksService.getBook($stateParams.id).$$state;
+    ctrl.books = BooksService.getTopBooks().$$state;
     
     ctrl.submitReview = function(){
       var review = {book_id: $stateParams.id, content: ctrl.reviewContent, rating: ctrl.reviewRating, user_id: currentUser.id};
