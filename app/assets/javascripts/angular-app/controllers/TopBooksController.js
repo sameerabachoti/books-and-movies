@@ -1,6 +1,10 @@
 function TopBooksController($stateParams, BooksService){
   var ctrl = this;
-  ctrl.data = BooksService.getTopBooks().$$state;
+
+  BooksService.getTopBooks()
+                .then(function(res){
+                   ctrl.data = res.data;
+                });
 
   ctrl.addBook = function(){
       var book = {title: ctrl.title, author: ctrl.author, description: ctrl.description};

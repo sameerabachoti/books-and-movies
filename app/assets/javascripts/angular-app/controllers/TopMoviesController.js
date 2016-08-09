@@ -1,6 +1,10 @@
 function TopMoviesController($stateParams, MoviesService){
   var ctrl = this;
-  ctrl.data = MoviesService.getMovies().$$state;
+  
+  MoviesService.getTopMovies()
+                .then(function(res){
+                   ctrl.data = res.data;
+                });
 
   ctrl.addMovie = function(){
       var movie = {display_title: ctrl.displayTitle, mpaa_rating: ctrl.displayRating, summary_short: ctrl.summaryShort};
