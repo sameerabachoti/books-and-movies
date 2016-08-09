@@ -5,10 +5,22 @@
 
 <form name="form" ng-submit="books.addBook()">
   Title:<br> 
-  <input name="title" required="required" ng-model="books.title"><br><br>
+  <input name="title" required="required" ng-model="books.title">
+  <div ng-if="form.title.$touched && form.title.$error.required">
+      Please enter a title.
+  </div>
+  <br><br>
   Author:<br> 
   <input name="author" required="required" ng-model="books.author"><br><br>
+  <div ng-if="form.author.$touched && form.author.$error.required">
+      Please enter an author.
+  </div>
+  <br><br>
   Description:<br>
-  <textarea name="description" required="required" ng-model="books.description"></textarea><br><br>
+  <textarea name="description" required="required" ng-model="books.description"></textarea>
+  <div ng-if="form.description.$touched && form.description.$error.required">
+      Please enter a description.
+  </div>
+  <br><br>
   <input type="submit">
 </form>
