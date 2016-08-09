@@ -10,7 +10,7 @@
  <input data-ng-model="book.search"/><br><br>
   <div class="books">
     <h4>NYT Bestsellers</h4>
-    <div ng-repeat="book in books.data.value.data | filter: book.search">
+    <div ng-repeat="book in books.data | filter: book.search">
       <div ng-if="book.image != null">
         <p><a ui-sref="book({id: book.id})">{{book.title}}</a></p>
       </div>
@@ -18,7 +18,7 @@
     <br>
     <h4>User-created Books</h4>
     <p>This a list of books that our users have added.</p>
-    <div ng-repeat="book in books.data.value.data | filter: book.search">
+    <div ng-repeat="book in books.data | filter: book.search">
       <div ng-if="book.image == null">
         <p><a ui-sref="book({id: book.id})">{{book.title}}</a></p>
       </div>

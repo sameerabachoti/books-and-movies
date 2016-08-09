@@ -7,7 +7,7 @@
  <input data-ng-model="movies.search"/><br><br>
   <div class="movies">
     <h4>NYT Movies</h4>
-    <div ng-repeat="movie in movies.data.value.data | filter: movies.search">
+    <div ng-repeat="movie in movies.data | filter: movies.search">
      <div ng-if="movie.image != null">
         <p><a ui-sref="movie({id: movie.id})">{{movie.display_title}}</a></p>
      </div>
@@ -15,7 +15,7 @@
     <br>
     <h4>User-created Movies</h4>
     <p>This a list of movies that our users have added.</p>
-    <div ng-repeat="movie in movies.data.value.data | filter: movies.search">
+    <div ng-repeat="movie in movies.data | filter: movies.search">
      <div ng-if="movie.image == null">
         <p><a ui-sref="movie({id: movie.id})">{{movie.display_title}}</a></p>
      </div>
