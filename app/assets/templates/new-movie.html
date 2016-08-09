@@ -4,7 +4,11 @@
 <h2>Add A New Movie</h2><br>
 <form name="form" ng-submit="movies.addMovie()">
   Title:<br> 
-  <input name="displayTitle" required="required" ng-model="movies.displayTitle"><br><br>
+  <input name="displayTitle" required="required" ng-model="movies.displayTitle">
+  <div ng-if="form.displayTitle.$touched && form.displayTitle.$error.required">
+      Please enter a title.
+  </div>
+  <br><br>
   MPAA Rating:<br>
   <select name="mpaaRating" required="required" ng-model="movies.displayRating">
     <option value="G">G</option>
@@ -12,8 +16,16 @@
     <option value="PG-13">PG-13</option>
     <option value="R">R</option>
     <option value="NC-17">NC-17</option>
-  </select><br><br>
+  </select>
+  <div ng-if="form.displayRating.$touched && form.displayRating.$error.required">
+      Please enter a rating.
+  </div>
+  <br><br>
   Short Summary:<br>
-  <textarea name="summaryShort" required="required" ng-model="movies.summaryShort"></textarea><br><br>
+  <textarea name="summaryShort" required="required" ng-model="movies.summaryShort"></textarea>
+  <div ng-if="form.summaryShort.$touched && form.summaryShort.$error.required">
+      Please enter a summary.
+  </div>
+  <br><br>
   <input type="submit">
 </form>
