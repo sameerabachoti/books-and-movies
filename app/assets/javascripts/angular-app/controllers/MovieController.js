@@ -5,7 +5,8 @@ function MovieController($scope, $stateParams, MoviesService){
                 .then(function(res){
                    ctrl.data = res.data;
                 });*/
-    ctrl.data = MoviesService.getMovie($stateParams.id).$$state;    
+    ctrl.data = MoviesService.getMovie($stateParams.id).$$state;
+    ctrl.movies = MoviesService.getTopMovies().$$state;    
 
     ctrl.submitReview = function(){
       var review = {movie_id: $stateParams.id, content: ctrl.reviewContent, rating: ctrl.reviewRating, user_id: currentUser.id};
