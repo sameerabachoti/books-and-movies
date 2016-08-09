@@ -5,15 +5,15 @@
 <a class="btn btn-primary" href="#" ng-click="book.deleteBook()">Delete</a>
 
 <h1>{{book.data.value.data.title}}</h1>
-<img src={{book.data.image}}><br><br><br>
+<img src={{book.data.value.data.image}}><br><br><br>
 <div>
-  <p>Description: {{book.data.description}}</p>
-  <p>Publisher: {{book.data.publisher}}</p>
-  <p>Author: {{book.data.author}}</p>
-  <p>Contributor: {{book.data.contributor}}</p>
-  <p>Price: {{book.data.price}}</p>
-  <p>Weeks on list: {{book.data.weeks_on_list}}</p>
-  <p>Published date: {{book.data.published_date}}</p>
+  <p>Description: {{book.data.value.data.description}}</p>
+  <p>Publisher: {{book.data.value.data.publisher}}</p>
+  <p>Author: {{book.data.value.data.author}}</p>
+  <p>Contributor: {{book.data.value.data.contributor}}</p>
+  <p>Price: {{book.data.value.data.price}}</p>
+  <p>Weeks on list: {{book.data.value.data.weeks_on_list}}</p>
+  <p>Published date: {{book.data.value.data.published_date}}</p>
 </div>
 <br>
 <a class="btn btn-info" href="#" ng-click="book.bookmarkBook()">Bookmark this book</a><br><br><br>

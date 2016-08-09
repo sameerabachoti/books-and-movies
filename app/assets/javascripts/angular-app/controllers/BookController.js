@@ -1,10 +1,12 @@
 function BookController($scope, $stateParams, BooksService){
     var ctrl = this;
-    
-    BooksService.getBook($stateParams.id)
+
+    /*BooksService.getBook($stateParams.id)
                 .then(function(res){
                    ctrl.data = res.data;
-                });
+                });*/
+
+    ctrl.data = BooksService.getBook($stateParams.id).$$state;
     
     ctrl.submitReview = function(){
       var review = {book_id: $stateParams.id, content: ctrl.reviewContent, rating: ctrl.reviewRating, user_id: currentUser.id};
