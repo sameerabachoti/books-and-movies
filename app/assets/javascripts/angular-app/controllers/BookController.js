@@ -1,11 +1,6 @@
 function BookController($scope, $stateParams, BooksService){
     var ctrl = this;
 
-    /*BooksService.getBook($stateParams.id)
-                .then(function(res){
-                   ctrl.data = res.data;
-                });*/
-
     ctrl.data = BooksService.getBook($stateParams.id).$$state;
     ctrl.books = BooksService.getTopBooks().$$state;
     
@@ -18,7 +13,7 @@ function BookController($scope, $stateParams, BooksService){
 
     ctrl.bookmarkBook = function(){    
        var book = ctrl.data.value.data;   
-       BooksService.postBook(book).then(function(response){   
+       BooksService.bookmarkBook(book).then(function(response){   
          currentUser.books.push(book);   
        }); 
        alert("You have bookmarked this book.")  
