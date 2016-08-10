@@ -16,6 +16,10 @@ function BooksService($http){
     return $http.post("/users/" + currentUser.id + "/books", book)
   }
 
+  this.bookmarkBook = function(book){
+    return $http.post("/users/" + currentUser.id + "/bookmark.json", book);
+  }  
+
   this.getCurrentUserBooks = function(id){
     return $http.get("users/" + id + ".json");
   }

@@ -23,15 +23,26 @@ class BooksController < ApplicationController
     end
   end
 
+  def bookmark
+    if params[:id] != nil
+      @user = User.find(params[:id])
+      @book = Book.find(params[:book]["id"])
+      @user.books << @book if !@user.books.include?(@book)
+      @book.update(user: current_user)
+    end
+    render :json => @user
+  end
+
   def create
+=begin
     if params[:id] != nil && params[:user_id] != nil
       @user = User.find(params[:user_id])
       @book = Book.find(params[:id])
       @user.books << @book if !@user.books.include?(@book)
       @book.update(user: current_user)
     else
+=end
       @book = Book.create(title: book_params[:title], author: book_params[:author], description: book_params[:description])
-    end
     render :json => @book
   end
 

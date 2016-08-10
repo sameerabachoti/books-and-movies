@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     resources :book_reviews
   end
 
+  post 'users/:id/bookmark' => 'books#bookmark'
+
+  post 'movies/:id/movie_reviews/:review_id' => 'movie_reviews#rate_review'
+
   #get '*path' => 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
