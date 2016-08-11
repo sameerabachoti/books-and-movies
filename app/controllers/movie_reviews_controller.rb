@@ -37,7 +37,7 @@ class MovieReviewsController < ApplicationController
 
   def count_reviews
     @movie_review = MovieReview.find(params[:review_id])
-    @movie_review.update(helpful_count: movie_review_params["helpful_count"])
+    @movie_review.update(helpful_count: movie_review_params["helpful_count"], unhelpful_count: movie_review_params["unhelpful_count"])
     render :json => @movie_review
   end
 

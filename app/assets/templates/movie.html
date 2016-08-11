@@ -45,18 +45,18 @@
 
 <div class="review" ng-repeat="review in movie.data.value.data.movie_reviews">
  <p>{{review.helpful_count}} users have found this review helpful.</p>
+ <p>{{review.unhelpful_count}} users have found this review unhelpful.</p>
   <br>
 
-  {{review.user.name}}<br>
+  {{currentUser.name}}<br>
   <p class="rating">{{review.rating}} stars</p>
-  <p>{{movie.currentUser.rated_movie_reviews}}</p>
-  <p>{{review.id}}</p>
+
   <p>{{review.content}}</p><br>
 
   <div ng-if="(movie.currentUser.id != '') && (movie.currentUser.rated_movie_reviews.indexOf(review.id) < 0)">
     <p>Was this review helpful to you?</p>
     <a href="#" ng-click="movie.helpfulReview(movie, review)">Yes</a>
-    <a href="#">No</a>
+    <a href="#" ng-click="movie.unHelpfulReview(movie, review)">No</a>
   </div>
 
   <div ng-if="(movie.currentUser.rated_movie_reviews.indexOf(review.id) > 0)">
