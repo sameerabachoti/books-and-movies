@@ -1,15 +1,16 @@
-function MovieController($scope, $state, $stateParams, MoviesService){
+function MovieController($scope, $stateParams, MoviesService){
     var ctrl = this;
     
     ctrl.data = MoviesService.getMovie($stateParams.id).$$state;
     ctrl.movies = MoviesService.getTopMovies().$$state;    
     ctrl.currentUser = currentUser;
-    console.log(currentUser.rated_movie_reviews);
 
     ctrl.submitReview = function(){
       var review = {movie_id: $stateParams.id, content: ctrl.reviewContent, rating: ctrl.reviewRating, creator_id: currentUser.id};
+
       MoviesService.postMovieReview(review, $stateParams.id).then(function(response) {
-        ctrl.data.value.data.movie_reviews.push(review)
+        ctrl.data.value.data.movie_reviews.push(review);
+        location.reload();
       })
     }
 
@@ -37,7 +38,7 @@ function MovieController($scope, $state, $stateParams, MoviesService){
         ctrl.delete_message = "This movie has been deleted.";
      }
      else{
-      $state.reload();
+      location.reload();
      }
     }
 
@@ -49,7 +50,7 @@ function MovieController($scope, $state, $stateParams, MoviesService){
       });
 
       MoviesService.updateUserRatedReviews(currentUser.id, review).then(function(response){
-        $state.reload();
+        location.reload();
       })
     }
 
@@ -61,12 +62,12 @@ function MovieController($scope, $state, $stateParams, MoviesService){
       });
 
       MoviesService.updateUserRatedReviews(currentUser.id, review).then(function(response){
-        $state.reload();
+        location.reload();
       })
     }
 };
 
-MovieController.$inject = ['$scope', '$state', '$stateParams', 'MoviesService'];
+MovieController.$inject = ['$scope', '$stateParams', 'MoviesService'];
 
 angular
     .module('app')
