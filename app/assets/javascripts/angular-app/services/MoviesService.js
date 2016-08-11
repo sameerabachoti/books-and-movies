@@ -13,7 +13,15 @@ function MoviesService($http){
   }
 
   this.postMovie = function(movie){
-    return $http.post("/users/" + currentUser.id + "/movies", movie)
+    return $http.post("/users/" + currentUser.id + "/movies", movie);
+  }
+
+  this.updateReviewCount = function(movie, review){
+    return $http.post("/movies/" + movie.data.value.data.id + "/movie_reviews/" + review.id + ".json", review);
+  }
+
+  this.updateUserRatedReviews = function(id, review){
+    return $http.post("users/" + id + "/add_rated_review_to_user.json", review);
   }
 
   this.getCurrentUserMovies = function(id){

@@ -32,7 +32,11 @@
     window.currentUser = {
         id : "<%=current_user.id if current_user %>",
         movies: <%=[]%>,
-        books: <%=[]%>
+        books: <%=[]%>,
+        rated_movie_reviews: "<%= 
+                                  current_user.rated_movie_reviews.collect do |review|
+                                    review.id
+                                  end if current_user %>"
     }
 </script>
 

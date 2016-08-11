@@ -1,15 +1,13 @@
 function MovieController($scope, $stateParams, MoviesService){
     var ctrl = this;
     
-    /*MoviesService.getMovie($stateParams.id)
-                .then(function(res){
-                   ctrl.data = res.data;
-                });*/
     ctrl.data = MoviesService.getMovie($stateParams.id).$$state;
     ctrl.movies = MoviesService.getTopMovies().$$state;    
+    ctrl.currentUser = currentUser;
+    console.log(currentUser.rated_movie_reviews);
 
     ctrl.submitReview = function(){
-      var review = {movie_id: $stateParams.id, content: ctrl.reviewContent, rating: ctrl.reviewRating, user_id: currentUser.id};
+      var review = {movie_id: $stateParams.id, content: ctrl.reviewContent, rating: ctrl.reviewRating, creator_id: currentUser.id};
       MoviesService.postMovieReview(review, $stateParams.id).then(function(response) {
         ctrl.data.value.data.movie_reviews.push(review)
       })
@@ -43,6 +41,18 @@ function MovieController($scope, $stateParams, MoviesService){
      }
     }
 
+    ctrl.helpfulReview = function(movie, review){
+      console.log(review);
+      review.helpful_count++;
+      review.rater_id = currentUser.id;
+      MoviesService.updateReviewCount(movie, review).then(function(response){
+        ctrl.review = response;
+      });
+
+      MoviesService.updateUserRatedReviews(currentUser.id, review).then(function(response){
+        location.reload();
+      })
+    }
 };
 
 MovieController.$inject = ['$scope', '$stateParams', 'MoviesService'];

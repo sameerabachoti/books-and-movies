@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
   post 'users/:id/bookmark' => 'books#bookmark'
 
-  post 'movies/:id/movie_reviews/:review_id' => 'movie_reviews#rate_review'
+  post 'movies/:id/movie_reviews/:review_id' => 'movie_reviews#count_reviews'
+
+  post 'users/:id/add_rated_review_to_user' => 'users#add_rated_review_to_user'
 
   #get '*path' => 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
