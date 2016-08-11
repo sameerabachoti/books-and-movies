@@ -30,16 +30,25 @@ class MovieReviewsController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @movie_review}
-      format.json { render json: @movie_review["user"] }
+      format.json { render json: @movie_review["creator"] }
+      format.json { render json: @movie_review["rater"] }
     end
   end
 
+  def count_reviews
+    @movie_review = MovieReview.find(params[:review_id])
+    @movie_review.update(helpful_count: movie_review_params["helpful_count"])
+    render :json => @movie_review
+  end
+
+=begin
   def update
     @movie_review = MovieReview.find(params[:id])
     @movie_review.update(movie_review_params)
     if @movie_review.save
       flash[:success] = "Review updated."
     end
+    render :json => @movie_review
   end
 
   def destroy
@@ -48,8 +57,9 @@ class MovieReviewsController < ApplicationController
     @movie = Movie.find(@movie_review.movie_id)
     flash[:success] = "Review deleted."
   end
-
+=end
   def movie_review_params
-      params.require(:movie_review).permit(:movie_id, :content, :user_id)
+      params.require(:movie_review).permit(:movie_id, :content, :rater_id, :creator_id, :helpful_count, :unhelpful_count)
   end
+
 end
