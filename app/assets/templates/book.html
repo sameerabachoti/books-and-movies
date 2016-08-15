@@ -19,33 +19,11 @@
 <a class="btn btn-info" href="#" ng-click="book.bookmarkBook()">Bookmark this book</a><br><br><br>
 <br><br>
 
-<div class="review_form">
-  <p>What do you think about this book? Write your own review below:</p>
-  <form name="form" ng-submit="book.submitReview()">
-    Book Rating:
-    <select name="reviewRating" required="required" ng-model="book.reviewRating">
-      <option value=1>1</option>
-      <option value=2>2</option>
-      <option value=3>3</option>
-      <option value=4>4</option>
-      <option value=5>5</option>
-    </select>
-    <div ng-if="form.reviewRating.$touched && form.reviewRating.$error.required">
-          Please select a rating.
-    </div>
-    <br><br>
-    Review:<br>
-    <textarea name="reviewContent" required="required" ng-model="book.reviewContent"></textarea><br>
-    <div ng-if="form.reviewContent.$touched && form.reviewContent.$error.required">
-          Review must be filled out! 
-    </div>
-    <input type="submit">
-  </form>
-  <br>
-</div>
+<review-form controller-name="BookController"></review-form>
 
 <br><br>
   <div class="review" ng-repeat="review in book.data.value.data.book_reviews">
+      <p>I can be anything</p>
       <br>
       {{review.user.name}}<br>
       <p class="rating">{{review.rating}} stars</p>

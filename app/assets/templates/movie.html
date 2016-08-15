@@ -19,33 +19,28 @@
 
 <p>Want to add your own movie review? Fill out the form below:</p>
 
-<div class="review_form">
-  <form name="form" ng-submit="movie.submitReview()">
-    Movie Rating:
-    <select name="reviewRating" required="required" ng-model="movie.reviewRating">
-      <option value=1>1</option>
-      <option value=2>2</option>
-      <option value=3>3</option>
-      <option value=4>4</option>
-      <option value=5>5</option>
-    </select>
-    <div ng-if="form.reviewRating.$touched && form.reviewRating.$error.required">
-          Please select a rating.
-    </div>
-    <br><br>
-    Review:<br>
-    <textarea name="reviewContent" required="required" ng-model="movie.reviewContent"></textarea><br>
-    <div ng-if="form.reviewContent.$touched && form.reviewContent.$error.required">
-          Review must be filled out! 
-    </div>
-    <input type="submit">
-  </form>
-</div>
+<review-form controller-name="MovieController"></review-form>
+
 <br><br>
 
 <div class="review" ng-repeat="review in movie.data.value.data.movie_reviews">
+ <p>{{review.helpful_count}} users have found this review helpful.</p>
+ <p>{{review.unhelpful_count}} users have found this review unhelpful.</p>
   <br>
-  {{review.user.name}}<br>
+
+  <p>By: {{review.creator.name}}</p>
   <p class="rating">{{review.rating}} stars</p>
-  {{review.content}}<br>
+
+  <p>{{review.content}}</p><br>
+
+  <div ng-if="(movie.currentUser.id != '') && (movie.currentUser.rated_movie_reviews.indexOf(review.id) < 0)">
+    <p>Was this review helpful to you?</p>
+    <a href="#" ng-click="movie.helpfulReview(movie, review)">Yes</a>
+    <a href="#" ng-click="movie.unHelpfulReview(movie, review)">No</a>
+  </div>
+
+  <div ng-if="(movie.currentUser.rated_movie_reviews.indexOf(review.id) > 0)">
+    <p class="green">Thank you for your rating!</p>
+  </div>
+
 </div>
