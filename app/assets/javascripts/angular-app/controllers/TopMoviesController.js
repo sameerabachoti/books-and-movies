@@ -16,6 +16,11 @@ function TopMoviesController($stateParams, MoviesService){
       ctrl.new_message = "This movie has been added.";
   }
 
+  ctrl.getMovies = function(num){
+    MoviesService.getTopMovies(num);
+    alert(num);
+  }
+
 };
 
 TopMoviesController.$inject = ['$stateParams', 'MoviesService'];

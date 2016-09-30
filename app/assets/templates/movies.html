@@ -3,6 +3,13 @@
 <a ui-sref="new-movie">New Movie</a><br><br>
 
 <div ui-view></div>
+
+<p>Enter in the number of movies you would like to see</p>
+<form name="form" ng-submit="movies.getMovies(movies.num)">
+    <input ng-model="movies.num">
+    <input type="submit">
+</form>
+
  <p>Search for a movie here: {{movies.search}} </p>
  <input data-ng-model="movies.search"/><br><br>
   <div class="movies">

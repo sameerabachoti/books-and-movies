@@ -16,4 +16,11 @@ class UsersController < ApplicationController
       format.json { render json: @books["user"] }
     end
   end
+
+  def add_rated_review_to_user
+    @movie_review = MovieReview.find(params["user"]["id"])
+    @user = User.find(params[:rater_id])
+    @user.rated_movie_reviews << @movie_review
+    render :json => @user
+  end
 end

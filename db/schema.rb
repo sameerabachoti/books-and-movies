@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804203108) do
+ActiveRecord::Schema.define(version: 20160815165145) do
 
   create_table "book_reviews", force: :cascade do |t|
     t.string   "content"
@@ -40,10 +40,13 @@ ActiveRecord::Schema.define(version: 20160804203108) do
   create_table "movie_reviews", force: :cascade do |t|
     t.string   "content"
     t.integer  "rating"
-    t.integer  "user_id"
+    t.integer  "creator_id"
+    t.integer  "rater_id"
     t.integer  "movie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "helpful_count",   default: 0
+    t.integer  "unhelpful_count", default: 0
   end
 
   create_table "movies", force: :cascade do |t|
@@ -56,7 +59,6 @@ ActiveRecord::Schema.define(version: 20160804203108) do
     t.string   "opening_date"
     t.string   "image"
     t.integer  "user_id"
-    t.integer  "creator_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

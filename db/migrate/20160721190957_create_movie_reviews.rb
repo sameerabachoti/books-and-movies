@@ -3,7 +3,8 @@ class CreateMovieReviews < ActiveRecord::Migration
     create_table :movie_reviews do |t|
       t.string :content
       t.integer :rating
-      t.integer :user_id
+      t.integer :creator_id
+      t.integer :rater_id
       t.integer :movie_id
       
       t.timestamps null: false
