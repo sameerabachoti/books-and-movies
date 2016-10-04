@@ -34,15 +34,7 @@ class BooksController < ApplicationController
   end
 
   def create
-=begin
-    if params[:id] != nil && params[:user_id] != nil
-      @user = User.find(params[:user_id])
-      @book = Book.find(params[:id])
-      @user.books << @book if !@user.books.include?(@book)
-      @book.update(user: current_user)
-    else
-=end
-      @book = Book.create(title: book_params[:title], author: book_params[:author], description: book_params[:description])
+    @book = Book.create(title: book_params[:title], author: book_params[:author], description: book_params[:description])
     render :json => @book
   end
 

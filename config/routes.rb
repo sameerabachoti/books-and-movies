@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations' }
-  root 'application#index'
+  root to: "welcome#index"
   resources :movies do 
     resources :movie_reviews
   end

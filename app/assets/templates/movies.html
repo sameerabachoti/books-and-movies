@@ -1,15 +1,10 @@
-<h3>Popular Movies</h3><br>
+<h3 class="popular">Popular Movies</h3><br>
 <p>This is a list of popular movies from the New York Times. Don't see your favorite movie? Add one here.</p>
 <a ui-sref="new-movie">New Movie</a><br><br>
-
+<hr>
 <div ui-view></div>
 
-<p>Enter in the number of movies you would like to see</p>
-<form name="form" ng-submit="movies.getMovies(movies.num)">
-    <input ng-model="movies.num">
-    <input type="submit">
-</form>
-
+<br>
  <p>Search for a movie here: {{movies.search}} </p>
  <input data-ng-model="movies.search"/><br><br>
   <div class="movies">
