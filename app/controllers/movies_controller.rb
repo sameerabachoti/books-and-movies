@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    movies = Movie.get_movies
+    Movie.get_movies
     @movies = Movie.all
 
     respond_to do |format|
