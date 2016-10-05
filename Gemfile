@@ -33,6 +33,7 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'responders', '~> 2.0' 
 gem 'devise'
+gem 'ngannotate-rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -58,4 +59,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+group :production, :staging do
+   gem "rails_12factor"
+   gem "rails_stdout_logging"
+   gem "rails_serve_static_assets"
+ +end
 
