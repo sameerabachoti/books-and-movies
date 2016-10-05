@@ -3,7 +3,7 @@
     <%= link_to "Books And Movies", '/', :class => "title" %>
 
       <% if current_user %>
-          <%=link_to "Movies", 'app/assets/views/movies.html', :class => "current_user1" %>
+          <a ui-sref="movies" class="current_user1">Movies</a>
           <a ui-sref="my-movies" class="menu">My Movies</a>
           <a ui-sref="books" class="menu">Books</a>
           <a ui-sref="my-books" class="menu">My Books</a>
