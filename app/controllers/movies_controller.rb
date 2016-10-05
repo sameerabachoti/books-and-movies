@@ -2,13 +2,15 @@ class MoviesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    Movie.get_movies
+    @movies = Movie.get_movies
+=begin
     @movies = Movie.all
 
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @movies}
     end
+=end
   end
 
   def create
