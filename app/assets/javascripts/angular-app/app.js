@@ -4,7 +4,7 @@ angular
         $stateProvider
             .state('movies', {
                 url: '/movies',
-                templateUrl: "<%=asset_path 'movies.html'%>",
+                templateUrl: "movies.html",
                 controller: 'TopMoviesController as movies'
             })
             .state('movie', {
@@ -44,7 +44,7 @@ angular
             })
             .state('my-books', {
                 url: '/my-books',
-                templateUrl: "<%=asset_path 'books.html'%>",
+                templateUrl: "myBooks.html",
                 controller: 'BookmarkController as myBooks'
             })
             .state('books', {
