@@ -44,7 +44,7 @@ angular
             })
             .state('my-books', {
                 url: '/my-books',
-                templateUrl: 'myBooks.html',
+                templateUrl: "<%=asset_path 'books.html'%>",
                 controller: 'BookmarkController as myBooks'
             })
             .state('books', {
