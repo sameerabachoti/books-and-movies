@@ -1,11 +1,7 @@
 angular
-    .module('app', ['ngAnimate', 'ui.router', 'templates'])
-    .config(function ($stateProvider) {
+    .module('app', ['ngAnimate','ui.router', 'templates'])
+    .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('home', {
-                url: '/',
-                templateUrl: 'home.html'
-            })
             .state('movies', {
                 url: '/movies',
                 templateUrl: 'movies.html',
@@ -76,5 +72,7 @@ angular
                 templateUrl: 'book.html',
                 controller: 'TopBooksController as books'
             })
+
+            $urlRouterProvider.otherwise('/');
     });
 
