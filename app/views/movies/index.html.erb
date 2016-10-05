@@ -2,4 +2,8 @@
 
 <h1>Movies</h1>
 
-<%= @movies %>
+<% @movies.each do |movie| %>
+  <%= movie.display_title %><br>
+  <%= movie.summary_short %><br>
+  <%= movie.opening_date %><br><br>
+<%end%>
