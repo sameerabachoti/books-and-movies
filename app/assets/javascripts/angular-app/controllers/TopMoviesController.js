@@ -1,6 +1,6 @@
 function TopMoviesController($stateParams, MoviesService){
   var ctrl = this;
-  
+
   MoviesService.getTopMovies()
                 .then(function(res){
                    ctrl.data = res.data;

@@ -2,6 +2,11 @@ angular
     .module('app', ['ngAnimate','ui.router', 'templates'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
+            .state('home', {
+                url: '/',
+                templateUrl: "home.html",
+                controller: 'TopMoviesController as home'
+            })
             .state('movies', {
                 url: '/movies',
                 templateUrl: "movies.html",

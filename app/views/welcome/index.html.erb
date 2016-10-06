@@ -1,6 +1,4 @@
 <br>
-<p>Welcome to Books and Movies! Check out the latest books and movies of today, and post reviews.</p>
-<br>
 <% if !current_user %>
   <%= link_to "Sign In", user_session_path, :class => "btn-info" %>
   <%= link_to "Sign Up", new_user_registration_path, :class => "btn-info" %>
@@ -10,4 +8,3 @@
   <a ui-sref="books" class="btn-info">Books</a>
   <a ui-sref="my-books" class="btn-info">My Books</a>
 <%end%>
-
