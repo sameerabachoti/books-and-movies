@@ -35,7 +35,7 @@ class BookReviewsController < ApplicationController
   end
 
   def update
-    @book_review = bookReview.find(params[:id])
+    @book_review = BookReview.find(params[:id])
     @book_review.update(book_review_params)
     if @book_review.save
       flash[:success] = "Review updated."
@@ -43,7 +43,7 @@ class BookReviewsController < ApplicationController
   end
 
   def destroy
-    @book_review = bookReview.find(params[:id])
+    @book_review = BookReview.find(params[:id])
     @book_review.destroy
     @book = book.find(@book_review.book_id)
     flash[:success] = "Review deleted."

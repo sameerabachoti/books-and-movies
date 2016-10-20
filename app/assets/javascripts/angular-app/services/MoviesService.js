@@ -1,6 +1,6 @@
 function MoviesService($http){
 
-  this.getTopMovies = function (num_movies){
+  this.getTopMovies = function (){
     return $http.get("/movies.json");
   }
 

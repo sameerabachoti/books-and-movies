@@ -4,6 +4,7 @@ function BookmarkController($scope, $stateParams, BooksService, MoviesService){
     ctrl.currentUser = currentUser;
 
     ctrl.getMyMovies = function(){
+      console.log("my movies");
       MoviesService.getCurrentUserMovies(currentUser.id).then(function(response){
         ctrl.movies = response.data.movies;
       });
